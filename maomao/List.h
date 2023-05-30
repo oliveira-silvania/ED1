@@ -1,27 +1,32 @@
 //Silvania Alves Oliveira
-#include "classCarta.h"
+#include "carta.h"
 using namespace std;
 
-template <class list> class Node{
+class NodeL{
 	public:
 		carta D;
-		Node<list> *Next;
-		static Node* MontaNode(carta dat){
-			Node *P = new Node;
+		NodeL *Next;
+		static NodeL* MontaNode(carta T){
+			NodeL *P = new NodeL;
 			if(P){
-				P->D=dat;
+				P->D=T;
 				P->Next=0;
 			}
 			return P;
 		}
-		static DesmontaNode(Node *P){
-			if(P) delete P;	
+		static carta DesmontaNode(NodeL* P){
+			carta x;
+		if(P){
+			x=P->D;
+			delete P;
 		}
+		return x;
+	}
 };
 
-template<class lista>class Lista{
+class Lista{
 	public:
-		Node<lista> *Head;
+		NodeL *Head;
 		int N;
 	public:
 	Lista(){
@@ -29,21 +34,21 @@ template<class lista>class Lista{
 		N=0;
 	}
 	~Lista(){
-		Node<lista> *P = Head;
+		NodeL *P = Head;
 		while(Head){
 			P=Head;
 			Head=Head->Next;
-			Node<lista>::DesmontaNode(P);
+			NodeL::DesmontaNode(P);
 			
 		}
 	}
 	
 	bool InsertL (carta T){
-		Node<lista> *P = Node<lista>::MontaNode(T);
+		NodeL *P = NodeL::MontaNode(T);
 		if(!P) return false;
 		
-		Node<lista> **aux = &Head;
-		while((*aux) && ((((*aux)->D).valor > T.valor) || (((*aux)->D).valor == T.valor) && (((*aux)->D).naipe < T.naipe))){
+		NodeL **aux = &Head;
+		while(((*aux) && ((((*aux)->D).valor > T.valor))) || ((((*aux)->D).valor == T.valor) && (((*aux)->D).naipe < T.naipe))){
 			aux = &((*aux)->Next);
 		}
 		P->Next = (*aux);
@@ -51,39 +56,56 @@ template<class lista>class Lista{
 		N++;
 		return true;
 	}	
-	/*carta EraseL(carta T)
-	{
-		carta X;
-		Node<list>* auxx;
-		Node<list>** P = &Head;
-		while((*P) && (((*P)->D).valor != T.valor || ((*P)->D).naipe != T.naipe))
-		{
-			P = &((*P)->Next);
-		}
-		if(*P)
-		{
-			auxx = *P;
-			*P = (auxx->Next);
-			X = Node::DesmontaNode(auxx);
-			N--;
-		}
-		return X;
-	}*/
 	
-	/*bool ProcurarL(carta T, carta*){
+	carta ProcurarL(carta T){ 
+		NodeL **it= &Head;
+		NodeL *p;
+		carta aux;
+		aux.valor = '0';
 		
-	}*/
+		while((*it) and ((*it)->D).valor != T.valor){//it!=null and it ta apontando for diferente do que eu quero
+			it = &((*it)->Next);
+		}
+		if(*it){
+			p=(*it);
+			aux=(*it)->D;
+			NodeL::DesmontaNode(p);
+			return aux;
+		}
+		it = &Head;
+		while(*it and ((*it)->D).naipe != T.naipe){//it!=null and it ta apontando para o diferente do que eu quero
+			it = &((*it)->Next);
+		}
+		if(*it){
+			p=*it;
+			aux=(*it)->D;
+			NodeL::DesmontaNode(p);
+			return aux;
+		}
+		return aux; //se nao tiver nada vai retornar lixo
+	}
 	
+	carta imp(){
+		carta aux;
+		if(Head){
+			aux=Head->D;
+			NodeL *x = Head;
+			Head = Head->Next;
+			delete x;
+		}
+		return aux;
+	}
+		
 	int SizeL(){
 		return N;
 	}
-	
+		
 	void ClearL(){
-		Node<lista> *P = Head;
+		NodeL *P = Head;
 		while(Head){
 			P=Head;
 			Head=Head->Next;
-			Node<lista>::DesmontaNode(P);
+			NodeL::DesmontaNode(P);
 		}
 		N=0;
 	}
@@ -93,18 +115,14 @@ template<class lista>class Lista{
 		
 		return false;
 	}
-	lista Ret(){
-		if(!Head) return false;
+
+	carta PopL(){
+		NodeL *P;
+		carta aux;
+		if(!Head) return aux;
 		
-		return Head->D.valor;
-	}
-	void PopL()
-	{
-		if(!Head) return;
-		
-		Node<lista> *P;
 		P=Head;
 		Head=Head->Next;
-		Node<lista>::DesmontaNode(P);
+		return NodeL::DesmontaNode(P);
 	}
 };

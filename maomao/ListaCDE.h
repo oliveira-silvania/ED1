@@ -15,7 +15,7 @@ template <class lista> class NodeLCDE{
 		}
 		return P;
 	}
-	static DesmontaNode(NodeLCDE* P){
+	static void DesmontaNode(NodeLCDE* P){
 		if(P) delete P;
 	}
 };
@@ -138,7 +138,7 @@ template<class lista>class listCDE{
 		while(N){
 			P=Head;
 			Head=Head->Next;
-			NodeLCDE<lista>::DesmontaNodeLCDE(P);
+			NodeLCDE<lista>::DesmontaNode(P);
 			N--;
 		}
 	}

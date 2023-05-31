@@ -1,3 +1,4 @@
+#pragma once
 //Silvania Alves Oliveira
 #include <iostream>
 
@@ -20,11 +21,11 @@ template <class pilha> class Node{
 	}
 };
 
-template <class pilha> class stack{
+template <class pilha> class Stack{
 	Node<pilha> *Topo;
 	int N;
 	public:
-	stack(){
+	Stack(){
 		Topo=0;
 		N=0;
 	}
@@ -70,7 +71,7 @@ template <class pilha> class stack{
 			N--;
 		}
 	}
-	~stack(){
-		stack:: clear();
+	~Stack(){
+		Stack:: clear();
 	}
 };

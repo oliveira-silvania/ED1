@@ -1,3 +1,4 @@
+#pragma once
 //Silvania Alves Oliveira
 #include "carta.h"
 using namespace std;
@@ -57,32 +58,47 @@ class Lista{
 		return true;
 	}	
 	
-	carta ProcurarL(carta T){ 
-		NodeL **it= &Head;
-		NodeL *p;
-		carta aux;
-		aux.valor = '0';
-		
-		while((*it) and ((*it)->D).valor != T.valor){//it!=null and it ta apontando for diferente do que eu quero
-			it = &((*it)->Next);
-		}
+	carta Buscar(carta T){
+
+	NodeL **it= &Head;
+	NodeL *P;
+	carta aux;
+	aux.valor = '0';
+
+		while(*it && ((*it)->D).valor != T.valor){
+			it=&((*it)->Next);
+		}	
 		if(*it){
-			p=(*it);
-			aux=(*it)->D;
-			NodeL::DesmontaNode(p);
+			P=(*it);
+			aux=P->D;
+			*it=(P->Next);
+			NodeL::DesmontaNode(P);
+			N--;
 			return aux;
 		}
 		it = &Head;
-		while(*it and ((*it)->D).naipe != T.naipe){//it!=null and it ta apontando para o diferente do que eu quero
-			it = &((*it)->Next);
-		}
+		while(*it && ((*it)->D).naipe != T.naipe){
+			it=&((*it)->Next);
+		}	
 		if(*it){
-			p=*it;
-			aux=(*it)->D;
-			NodeL::DesmontaNode(p);
+			P=(*it);
+			aux=P->D;
+			*it=(P->Next);
+			NodeL::DesmontaNode(P);
+			N--;
 			return aux;
 		}
-		return aux; //se nao tiver nada vai retornar lixo
+	return aux; //se nao tiver nada vai retornar lixo
+}
+	carta primeiraCarta(){
+		carta aux;
+		aux=Head->D;
+		NodeL *P;
+		P=Head;
+		Head=Head->Next;
+		NodeL::DesmontaNode(P);
+		
+		return aux;
 	}
 	
 	carta imp(){

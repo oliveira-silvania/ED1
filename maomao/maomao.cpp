@@ -135,6 +135,7 @@ int main(){
 				
 			}
 			//verificar quem perdeu
+			
 		}
 		//quem ganhou a rodadda?
 	}

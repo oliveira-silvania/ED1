@@ -34,7 +34,7 @@ class Lista{
 		Head=0;
 		N=0;
 	}
-	~Lista(){
+	~Lista(){ //construtor
 		NodeL *P = Head;
 		while(Head){
 			P=Head;
@@ -44,22 +44,22 @@ class Lista{
 		}
 	}
 	
-	void InsertL(carta T){
-		NodeL* p = NodeL::MontaNode(T);
-		NodeL** it = &Head;
-		if(!Head) Head=p;
-		else{
-			while((*it) and ((((*it)->D).valor > (p->D).valor) or (((*it)->D).valor == (p->D).valor)) and (((*it)->D).naipe < (p->D).naipe)){
-				it = &((*it)->Next);
-			}
-			p->Next = (*it);
-			(*it)= p;
+	void InsertL(carta T){ //insert
+	NodeL* p = NodeL::MontaNode(T);
+	NodeL** it = &Head;
+	if(!Head) Head=p;
+	else{
+		while((*it) and ((((*it)->D).valor > (p->D).valor) or (((*it)->D).valor == (p->D).valor)) and (((*it)->D).naipe < (p->D).naipe)){
+			it = &((*it)->Next);
 		}
-		N++;
+		p->Next = (*it);
+		(*it)= p;
 	}
+	N++;
+}
 
 	
-	carta Buscar(carta T){
+	carta Buscar(carta T){ //buscar a carta
 
 	NodeL **it= &Head;
 	NodeL *P;
@@ -91,7 +91,7 @@ class Lista{
 		}
 	return aux; //se nao tiver nada vai retornar lixo
 }
-	carta primeiraCarta(){
+	carta primeiraCarta(){ //joga a primeira carta
 		carta aux;
 		aux=Head->D;
 		NodeL *P;
@@ -102,7 +102,7 @@ class Lista{
 		return aux;
 	}
 	
-	carta imp(){
+	carta imp(){ //imprimi as cartas
 		carta aux;
 		if(Head){
 			aux=Head->D;
@@ -113,11 +113,11 @@ class Lista{
 		return aux;
 	}
 		
-	int SizeL(){
+	int SizeL(){ //tamanho 
 		return N;
 	}
 		
-	void ClearL(){
+	void ClearL(){ //limpa
 		NodeL *P = Head;
 		while(Head){
 			P=Head;
@@ -127,13 +127,13 @@ class Lista{
 		N=0;
 	}
 	
-	bool EmptyL(){
+	bool EmptyL(){ //está vazio
 		if(Head==0) return true;
 		
 		return false;
 	}
 
-	carta PopL(){
+	carta PopL(){ //apagar o que tá no Head
 		NodeL *P;
 		carta aux;
 		if(!Head) return aux;

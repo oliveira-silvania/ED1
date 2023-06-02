@@ -1,6 +1,6 @@
 //Silvania Alves Oliveira
 #include <bits/stdc++.h>
-#include "listCDE.h"
+#include "listaCDE.h"
 #include "pilha.h"
 #include "carta.h"
 #include "list.h"
@@ -43,6 +43,7 @@ int main(){
 				int sentido=1; //1 horario ; -1 anti horario
 				int Pont = Jog.ItRet(); //retorna a carta que está no vector e que o lista tá apontando *****
 				carta aux;
+				carta inverte;
 				aux=posJog[Pont].Buscar(lixo.Top());
 				if(aux.valor=='0'){//Jog nao tem a carta igual do lixo; vai ter que comprar carta no monte
 					if(monte.Top().valor==lixo.Top().valor or monte.Top().naipe==lixo.Top().naipe){//a carta do monte e igual do lixo
@@ -52,23 +53,24 @@ int main(){
 						ok=false;
 					}
 				}				
-				if(aux.valor=='Q'){//trocar de sentido; 1-horario; -1 anti-horario
-					sentido=sentido*(-1);
-					if(sentido==1) Jog.Itpp();
-					else Jog.Itmm();
-				}
-				if(ok){
+				if(ok){ //tem carta para jogar
+					if(aux.valor=='Q'){//trocar de sentido; 1-horario; -1 anti-horario
+						sentido=sentido*(-1);
+						if(sentido==1) Jog.Itpp();
+						else Jog.Itmm();
+					}
 					if(sentido==1){ //jogo ta no sentido horario
 						if(aux.valor=='A'){//proximo jog não jogar
+							Jog.Itpp();
 							Jog.Itpp();
 						}
 						else{
 							if(aux.valor=='7'){//proximo jog compra 2 cartas
+								Jog.Itpp();
 								posJog[Pont].InsertL(monte.Top()); //compra 1
 								monte.Pop();
 								posJog[Pont].InsertL(monte.Top()); //compra 2
 								monte.Pop();
-								Jog.Itpp();
 							}
 							else{
 								if(aux.valor=='9'){//o jog anterior compra 3 cartas
@@ -79,21 +81,56 @@ int main(){
 									monte.Pop();
 									posJog[Pont].InsertL(monte.Top());//compra 3
 									monte.Pop();
-									Jog.Itpp();
-								}
-								else{//lixo.Top().valor=='cartas neutras'
-									
 								}
 							}
 						}
 					}
-					if(sentido=-1)//jogo ta no sentido anti horario
+					if(sentido=-1){//jogo ta no sentido anti horario
+						if(aux.valor=='A'){//proximo jog não jogar
+							Jog.Itmm();
+							Jog.Itmm();
+						}
+						else{
+							if(aux.valor=='7'){//proximo jog compra 2 cartas
+								Jog.Itmm();
+								posJog[Pont].InsertL(monte.Top()); //compra 1
+								monte.Pop();
+								posJog[Pont].InsertL(monte.Top()); //compra 2
+								monte.Pop();
+							}
+							else{
+								if(aux.valor=='9'){//o jog anterior compra 3 cartas
+									Jog.Itpp();
+									posJog[Pont].InsertL(monte.Top());//compra 1
+									monte.Pop();
+									posJog[Pont].InsertL(monte.Top());//compra 2
+									monte.Pop();
+									posJog[Pont].InsertL(monte.Top());//compra 3
+									monte.Pop();
+								}
+							}
+						}
+					}
+					lixo.Push(aux);
 				} 
-				else{
-					
+				else{//carta comprada eh diferente do topo do lixo; proximo jog joga
+					if(sentido==1) Jog.Itpp();
+					else Jog.Itmm();
 				}                                                      
-				
+				if(monte.Size()==0){//monte ta vazio, levar todas as carta do lixo menos o topo para o monte
+					inverte=lixo.Top();
+					lixo.Pop();
+					while(!lixo.Empty()){
+						monte.Top()=lixo.Top();
+						lixo.Pop();
+					}
+					lixo.Top()=inverte;
+				}
+				if(posJog[Pont].SizeL()==0) zero=false;//verificar se algum jogador tem size==0	
 			}
+			//verificar quem perdeu
 		}
+		//quem ganhou a rodadda?
 	}
+	
 }

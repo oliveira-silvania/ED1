@@ -44,19 +44,20 @@ class Lista{
 		}
 	}
 	
-	bool InsertL (carta T){
-		NodeL *P = NodeL::MontaNode(T);
-		if(!P) return false;
-		
-		NodeL **aux = &Head;
-		while(((*aux) && ((((*aux)->D).valor > T.valor))) || ((((*aux)->D).valor == T.valor) && (((*aux)->D).naipe < T.naipe))){
-			aux = &((*aux)->Next);
+	void InsertL(carta T){
+	NodeL* p = NodeL::MontaNode(T);
+	NodeL** it = &Head;
+	if(!Head) Head=p;
+	else{
+		while((*it) and ((((*it)->D).valor > (p->D).valor) or (((*it)->D).valor == (p->D).valor)) and (((*it)->D).naipe < (p->D).naipe)){
+			it = &((*it)->Next);
 		}
-		P->Next = (*aux);
-		(*aux)= P;
-		N++;
-		return true;
-	}	
+		p->Next = (*it);
+		(*it)= p;
+	}
+	N++;
+}
+
 	
 	carta Buscar(carta T){
 

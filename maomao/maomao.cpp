@@ -44,7 +44,6 @@ int main(){
 			bool zero=true;
 			bool ok=false;
 			while(zero){ //ninguem chegou a zero
-				
 				int sentido=1; //1 horario ; -1 anti horario
 				int Pont = Jog.ItRet(); //retorna a carta que está no vector e que o lista tá apontando *****
 				carta aux;
@@ -65,7 +64,7 @@ int main(){
 						else Jog.Itmm();
 					}
 					if(sentido==1){ //jogo ta no sentido horario
-						if(aux.valor=='A'){//proximo jog não jogar
+						if(aux.valor=='A'){//proximo jog não joga
 							Jog.Itpp();
 							Jog.Itpp();
 						}
@@ -132,12 +131,42 @@ int main(){
 					lixo.Top()=inverte;
 				}
 				if(posJog[Pont].SizeL()==0) zero=false;//verificar se algum jogador tem size==0	
-				
+				cout<<"ninguem chegou a zero"<<endl;
+				//FALTA ALGUMA COISA!!!!!!!!!!!!
 			}
+			cout<<"sizeLCDE: "<<Jog.SizeLCDE()<<endl;
 			//verificar quem perdeu
-			
-		}
+			int maior=0, pts[Jog.SizeLCDE()], jog=0; 
+			for(int i=1; i<=Jog.SizeLCDE(); i++){
+				int cont=0;
+				for(int y=1; y<=posJog[i].SizeL(); y++){
+					cont += posJog[y].ItRetL().valor-64;
+					
+				}
+				pts[i]=cont;
+				cout<<cont;
+				if(pts[i]>maior){
+					maior=pts[i];
+					jog=i;
+				}
+			}
+			posJog[jog].ClearL();
+		 }	
 		//quem ganhou a rodadda?
+		
+		while(Jog.EmptyLCDE()){
+			Jog.BeginLCDE();
+			cout<<"ganhador:" <<Jog.ItRet()<<endl;
+			Jog.EraseLCDE();
+		}
 	}
 	
 }
+/*
+1
+2
+A0 B0 C0 D0 E0 F0 G0 H0 I0 J0 K0 L0 M0 A1 B1 C1 D1 E1 F1 G1 H1 I1 J1 K1 L1 M1 
+A2 B2 C2 D2 E2 F2 G2 H2 I2 J2 K2 L2 M2 A3 B3 C3 D3 E3 F3 G3 H3 I3 J3 K3 L3 M3 
+A0 B0 C0 D0 E0 F0 G0 H0 I0 J0 K0 L0 M0 A1 B1 C1 D1 E1 F1 G1 H1 I1 J1 K1 L1 M1 
+A2 B2 C2 D2 E2 F2 G2 H2 I2 J2 K2 L2 M2 A3 B3 C3 D3 E3 F3 G3 H3 I3 J3 K3 L3 M3 
+*/

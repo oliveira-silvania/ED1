@@ -36,7 +36,7 @@ int main(){
 				posicao.id = i;
 				jogo.InsertNext(posicao);
 			}
-			jogo.BeginLCDE(); //comecando com o primeiro jogador
+			jogo.Begin(); //comecando com o primeiro jogador
 			int Pont;
 			Pont=jogo.ItRet().id; //vez do jogador
 			if(lixo.Empty()){ //vai jogar a primeira carta da partida
@@ -124,42 +124,42 @@ int main(){
 						}
 					}
 					lixo.Push(aux);
-				}				 
-				                                                    
+				}//fim do if ok		
+						 
+				if(jog[Pont].SizeL()==0) zero=false;//verificar se algum jogador tem size==0	
+				cout<<"ninguem chegou a zero"<<endl;
+				
 				if(monte.Size()==0){//monte ta vazio, levar todas as carta do lixo menos o topo para o monte
 					inverte=lixo.Top();
 					lixo.Pop();
 					while(!lixo.Empty()){
-						monte.Top()=lixo.Top();
+						monte.Push(lixo.Top());
 						lixo.Pop();
 					}
+					lixo.Push(inverte);
 				}
-				if(jog[Pont].SizeL()==0) zero=false;//verificar se algum jogador tem size==0	
-				cout<<"ninguem chegou a zero"<<endl;
-			}//fim do zero
+			}//fim do zero; fim da partida
+			
 			//verificar quem perdeu
-			/*int pontuacao=0, pontos=0;
+			int pontuacao=0, pontos=0;
 			jogador perdedor;
-			jogo.BeginLCDE();
-			Lista test;
-			for(int p=1; p<=auxJ; p++){
-				pontos=jog[p].SomaPontos();
+			jogo.Begin();
+			for(int p=0; p<jogo.Size(); p++){
+				int aux;
+				aux=jogo.ItRet().id;
+				pontos=jog[aux].SomaPontos();
 				if(pontos>pontuacao){
+					perdedor.id=aux;
 					pontuacao=pontos;
-					perdedor=jogo.ItRet();
 				}
 				jogo.Itpp();
-				//cout<<pontos<<endl;
 			}
-			cout<<perdedor.id<<endl;
-			Jog.EraseLCDE(perdedor);
-			auxJ--;
-			numPartidas--;
+			jogo.Erase(perdedor);
 			while(!lixo.Empty()) lixo.Pop();
-			while(!monte.Empty()) monte.Pop();*/
+			while(!monte.Empty()) monte.Pop();
 		}
-		//quem ganhou a rodada?
-		//cout<<"vencedor"<<jogo.ItRet().id<<endl;
+		//quem ganhou a rodada???
+		cout<<"vencedor"<<jogo.ItRet().id<<endl;
 	}
 }
 /*

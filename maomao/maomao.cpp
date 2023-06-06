@@ -7,6 +7,7 @@
 using namespace std;
 
 
+
 int main(){
 	carta aux;
 	int numPartidas, numJog;
@@ -49,14 +50,6 @@ int main(){
 				carta aux;
 				carta inverte;
 				aux=posJog[Pont].Buscar(lixo.Top());
-				if(aux.valor=='0'){//Jog nao tem a carta igual do lixo; vai ter que comprar carta no monte
-					if(monte.Top().valor==lixo.Top().valor or monte.Top().naipe==lixo.Top().naipe){//a carta do monte e igual do lixo
-						ok=true;
-					}
-					else{ //a carta do monte nao eh igual do lixo
-						ok=false;
-					}
-				}				
 				if(ok){ //tem carta para jogar
 					if(aux.valor=='Q'){//trocar de sentido; 1-horario; -1 anti-horario
 						sentido=sentido*(-1);
@@ -116,7 +109,15 @@ int main(){
 						}
 					}
 					lixo.Push(aux);
-				} 
+				}
+				if(aux.valor=='0'){//Jog nao tem a carta igual do lixo; vai ter que comprar carta no monte
+					if(monte.Top().valor==lixo.Top().valor or monte.Top().naipe==lixo.Top().naipe){//a carta do monte e igual do lixo
+						ok=true;
+					}
+					else{ //a carta do monte nao eh igual do lixo
+						ok=false;
+					}
+				}				 
 				else{//carta comprada eh diferente do topo do lixo; proximo jog joga
 					if(sentido==1) Jog.Itpp();
 					else Jog.Itmm();
@@ -132,35 +133,30 @@ int main(){
 				}
 				if(posJog[Pont].SizeL()==0) zero=false;//verificar se algum jogador tem size==0	
 				cout<<"ninguem chegou a zero"<<endl;
-				//FALTA ALGUMA COISA!!!!!!!!!!!!
 			}
-			cout<<"sizeLCDE: "<<Jog.SizeLCDE()<<endl;
 			//verificar quem perdeu
-			int maior=0, pts[Jog.SizeLCDE()], jog=0; 
-			for(int i=1; i<=Jog.SizeLCDE(); i++){
-				int cont=0;
-				for(int y=1; y<=posJog[i].SizeL(); y++){
-					cont += posJog[y].ItRetL().valor-64;
-					
-				}
-				pts[i]=cont;
-				cout<<cont;
-				if(pts[i]>maior){
-					maior=pts[i];
-					jog=i;
-				}
-			}
-			posJog[jog].ClearL();
-		 }	
-		//quem ganhou a rodadda?
-		
-		while(Jog.EmptyLCDE()){
+			int pontuacao=0, pontos=0, perdedor;
 			Jog.BeginLCDE();
-			cout<<"ganhador:" <<Jog.ItRet()<<endl;
-			Jog.EraseLCDE();
+			Lista test;
+			for(int p=1; p<=Jog.SizeLCDE(); p++){
+				pontos=test.SomaPontos();
+				if(pontos>pontuacao){
+					pontuacao=pontos;
+					perdedor=Jog.ItRet();
+				}
+				Jog.Itpp();
+				cout<<pontos<<endl;
+			}
+			//cout<<perdedor<<endl;
+			/*Jog.EraseLCDE(perdedor);
+			numPartidas--;
+			while(!lixo.Empty()) lixo.Pop();
+			while(!monte.Empty()) monte.Pop();*/
 		}
+		//quem ganhou a rodada?
+		//cout<<"Partida"<< <<]
+		//cout<<"vencedor"<<Jog.ItRet()<<endl;
 	}
-	
 }
 /*
 1

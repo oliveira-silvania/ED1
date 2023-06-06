@@ -15,6 +15,8 @@ int main(){
 	int numPartidas, numJog;
 	cin>>numPartidas;
 	while(numPartidas--){ //primeira entrada-numero de rodadas
+		int numPartidasAux;
+		numPartidasAux=numPartidas;
 		cin>>numJog; 
 		listCDE<jogador> jogo;
 		Stack<carta> monte, lixo;
@@ -159,7 +161,7 @@ int main(){
 			while(!monte.Empty()) monte.Pop();
 		}
 		//quem ganhou a rodada???
-		cout<<"vencedor"<<jogo.ItRet().id<<endl;
+		cout<<"partida: "<<numPartidasAux<<" vencedor"<<jogo.ItRet().id<<endl;
 	}
 }
 /*

@@ -142,4 +142,26 @@ class Lista{
 		Head=Head->Next;
 		return NodeL::DesmontaNode(P);
 	}
+	/*carta ItRetL(){
+		NodeL *P;
+		carta T;
+		if(!Head) return T;
+		
+		T=Head->D;
+		return T;
+		P=Head;
+		P=Head->Next;
+		NodeL::DesmontaNode(P);
+	}*/
+	int SomaPontos(){
+		NodeL *P;
+		int soma=0;
+		if(Head){//Head!=0
+			P=Head;
+			soma+=(P->D.valor) -64;
+			Head=Head->Next;
+			NodeL::DesmontaNode(P);
+		}
+		return soma;
+	}
 };

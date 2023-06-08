@@ -81,15 +81,15 @@ template<class lista>class listCDE{
 		}
 		return false;
 	}
-	void BeginLCDE(){
+	void Begin(){
 		It=Head;
 	}
-	void EndLCDE(){
+	void End(){
 		if(Head){
 			It=Head->Prev;
 		}
 	}
-	void EraseLCDE(){
+	void Erase(lista T){
 		if(It){
 			NodeLCDE<lista> *P = It;
 			if(It->Next==It){
@@ -108,15 +108,15 @@ template<class lista>class listCDE{
 			N--;
 		}
 	}
-	int SizeLCDE(){
+	int Size(){
 		return N;
 	}
-	bool EmptyLCDE(){
+	bool Empty(){
 		if(Head==0) return true;
 		
 		return false;
 	}
-	void ClearLCDE(){
+	void Clear(){
 		NodeLCDE<lista> *P;
 		while(N){
 			P=Head;
@@ -145,4 +145,3 @@ template<class lista>class listCDE{
 	}
 	
 };
-

@@ -3,7 +3,7 @@
 #include "listaCDE.h"
 #include "pilha.h"
 #include "carta.h"
-#include "lista.h"
+#include "list.h"
 using namespace std;
 
 struct jogador{
@@ -158,13 +158,14 @@ int main(){
 			}
 			jogo.Erase(perdedor);
 			while(!lixo.Empty()) lixo.Pop();
-			while(!monte.Empty()) monte.Pop();
+			while(!monte.Empty()) monte.Pop();		
 		}
+		numPartidasAux--;
 		//quem ganhou a rodada???
-		cout<<"partida: "<<numPartidasAux<<" vencedor"<<jogo.ItRet().id<<endl;
+		cout<<"partida: "<<numPartidasAux+2<<" e vencedor: "<<jogo.ItRet().id<<endl;
 	}
 }
-/*
+/* caso de teste que estar no pdf do trabalho
 1
 2
 A0 B0 C0 D0 E0 F0 G0 H0 I0 J0 K0 L0 M0 A1 B1 C1 D1 E1 F1 G1 H1 I1 J1 K1 L1 M1 

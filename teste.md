@@ -1,41 +1,49 @@
-# 📊 Painel de Análises – Inclusão de Mulheres na Ciência Brasileira em STEM
+# 📂 Pasta `data/raw`
 
-Este painel foi desenvolvido em **Power BI** como parte da Iniciação Científica, reunindo indicadores da produção científica brasileira (2021–2023), com foco na **participação feminina em áreas STEM**.
-
-O objetivo é oferecer uma **visualização interativa** dos dados, permitindo filtrar informações por **ano, gênero, estado e região**, e identificar padrões de concentração da produção científica.
-
----
-
-## 🌐 Versão Online (Interativa)
-
-🔗 [Clique aqui para abrir o painel no Power BI](https://app.powerbi.com/groups/me/reports/a76d7687-9fee-4eec-b6ab-676185c166bd/b65fad18172b98588cda?experience=power-bi)
+Esta pasta armazena os **dados brutos (raw)** utilizados no projeto de Iniciação Científica:  
+> **A INCLUSÃO DE MULHERES NA CIÊNCIA BRASILEIRA EM ÁREAS DE STEM: REPOSITÓRIO DE DADOS, ANÁLISES ESTATÍSTICAS E MODELAGENS QUE IDENTIFIQUEM PADRÕES OU TENDÊNCIAS**
 
 ---
 
-## 🔎 Destaques do Painel
-- **Distribuição por Estado (UF):**  
-  - São Paulo concentra o maior número de programas e artigos.  
-  - Estados do Sudeste e Sul apresentam forte presença, enquanto regiões Norte e Centro-Oeste possuem produção mais reduzida.  
+## 📑 Fontes de Dados (Metadados CAPES 2021–2024)
 
-- **Comparativo Regional:**  
-  - O **Sudeste** responde por mais de 50% dos artigos.  
-  - Sul e Nordeste dividem posições intermediárias.  
-  - Centro-Oeste e Norte ficam com participação inferior a 15% no total.  
+Os dados foram obtidos diretamente do **Banco de Metadados da CAPES**, com registros provenientes da **Plataforma Sucupira**.  
+Esses arquivos representam informações homologadas pelos Programas de Pós-Graduação (PPG) e validadas pelas Instituições de Ensino.
 
-- **Mapa Interativo:**  
-  - Visualização geográfica da produção científica, com intensidade de cor representando a quantidade de artigos por estado.  
-  - Evidencia a desigualdade entre estados mais e menos produtivos.  
+🔗 Catálogo oficial: [https://dadosabertos.capes.gov.br/dataset/](https://dadosabertos.capes.gov.br/dataset/)
 
-- **Evolução Temporal:**  
-  - Possibilidade de filtrar por **ano** para observar variações na produção científica.  
-  - Permite identificar tendências de crescimento ou queda ao longo do triênio analisado (2021–2023).  
+### 1. Produção Intelectual  
+- **Arquivo:** `metadados_producao_intelectual_2021_2024.pdf`  
+- **Conteúdo:** informações sobre produções intelectuais dos PPGs (bibliográficas, técnicas e artísticas).  
+- **Principais variáveis:** título da produção, tipo/subtipo, área de concentração, linha de pesquisa, projeto, ISSN de periódicos, vínculo com TCC.  
+- **Abrangência:** 2021–2023 (versão atual), nacional :contentReference[oaicite:0]{index=0}.
 
-- **Filtro de Gênero:**  
-  - Destaca a diferença de participação entre homens e mulheres.  
-  - Possibilita observar em quais estados/regiões a presença feminina é mais expressiva ou ainda mais reduzida.  
+### 2. Financiadores de Projetos  
+- **Arquivo:** `metadados_financiadores_projetos_2021a2024.pdf`  
+- **Conteúdo:** informações sobre financiadores de projetos vinculados aos PPGs.  
+- **Principais variáveis:** nome do financiador, natureza do financiamento, programa de fomento, país de origem, vínculo com programa/instituição.  
+- **Abrangência:** 2021–2023 (versão atual), nacional :contentReference[oaicite:1]{index=1}.
 
-- **Integração Programas vs. Artigos:**  
-  - Relação entre quantidade de programas de pós-graduação e o volume de artigos publicados.  
-  - Mostra a concentração de produção em programas maiores e mais consolidados.  
+### 3. Autores da Produção Intelectual  
+- **Arquivo:** `metadados_autor_producao_intelectual_2021_2024.pdf`  
+- **Conteúdo:** identificação dos autores de cada produção intelectual.  
+- **Principais variáveis:** nome do autor, vínculo com o PPG (docente, discente, egresso, pós-doc, externo), área de conhecimento, país, tempo de egresso.  
+- **Abrangência:** 2021–2023 (versão atual), nacional :contentReference[oaicite:2]{index=2}.
 
+### 4. Programas de Pós-Graduação  
+- **Arquivo:** `metadados_programas_pos_graduacao_2021_2024.pdf`  
+- **Conteúdo:** dados sobre os PPGs no Brasil.  
+- **Principais variáveis:** área de avaliação, área de conhecimento, instituição, município, UF, conceito CAPES, modalidade (acadêmico/profissional), situação do programa.  
+- **Abrangência:** 2021–2023 (versão atual), nacional :contentReference[oaicite:3]{index=3}.
 
+---
+
+## ⚠️ Observações Importantes
+- Estes arquivos contêm **metadados descritivos** e não os dados completos em formato tabular.  
+- Os dados são **brutos e originais**, devendo ser tratados antes da análise.  
+- Para análise estatística e modelagens, os dados processados são armazenados em [`data/processed`](../processed).  
+- Em caso de divergência de informações entre versões, deve-se considerar a última atualização disponibilizada pela CAPES.  
+
+---
+
+## 📂 Estrutura esperada nesta pasta

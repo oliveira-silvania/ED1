@@ -1,63 +1,46 @@
-# 📂 Pasta `data/raw`
+# 📂 Pasta `dashboards`
 
-Esta pasta armazena os **dados brutos (raw)** utilizados no projeto de Iniciação Científica:  
+Este diretório reúne o **Painel de Análises em Power BI**, desenvolvido como parte da Iniciação Científica:  
 > **A INCLUSÃO DE MULHERES NA CIÊNCIA BRASILEIRA EM ÁREAS DE STEM: REPOSITÓRIO DE DADOS, ANÁLISES ESTATÍSTICAS E MODELAGENS QUE IDENTIFIQUEM PADRÕES OU TENDÊNCIAS**
 
-Os arquivos aqui presentes são **metadados oficiais da CAPES (2021–2024)**, extraídos do **Banco de Metadados da Plataforma Sucupira**.  
-Eles descrevem a estrutura, variáveis e periodicidade de atualização dos dados homologados pelos **Programas de Pós-Graduação (PPGs)** no Brasil.
-
-🔗 Catálogo oficial: [https://metadados.capes.gov.br/index.php](https://metadados.capes.gov.br/index.php)
+O painel consolida indicadores da produção científica brasileira (2021–2023), com foco na **participação feminina em áreas STEM**.
 
 ---
 
-## 📑 Arquivos disponíveis
+## 🌐 Versão Online (Interativa)
 
-### 1. Produção Intelectual
-- **Arquivo:** `producao_intelectual.pdf`
-- **Descrição:** Metadados das produções intelectuais dos PPGs (bibliográficas, técnicas e artísticas).
-- **Variáveis principais:** programa, instituição, título da produção, tipo/subtipo, área de concentração, linha de pesquisa, projeto, ISSN (quando aplicável), vínculo com TCC.
-- **Registros (2021–2023):** ~3,38 milhões  
-  - **Bibliográfica:** 1,89M  
-  - **Técnica:** 1,47M  
-  - **Artístico-cultural:** 23k  
+🔗 [Clique aqui para abrir o painel no Power BI](https://app.powerbi.com/groups/me/reports/a76d7687-9fee-4eec-b6ab-676185c166bd/b65fad18172b98588cda?experience=power-bi)
 
 ---
 
-### 2. Autores da Produção Intelectual
-- **Arquivo:** `autor_producao_intelectual.pdf`
-- **Descrição:** Identificação e vínculos dos autores das produções intelectuais.
-- **Variáveis principais:** nome do autor, tipo de vínculo (docente, discente, egresso, pós-doc, externo), categoria docente, nível de titulação, área de conhecimento, país, tempo de egresso.
-- **Registros (2021–2023):** ~31,9 milhões  
+## 🔎 Destaques do Painel
+- **Distribuição por Estado (UF):**  
+  - São Paulo concentra o maior número de programas e artigos.  
+  - Estados do Sudeste e Sul apresentam forte presença, enquanto regiões Norte e Centro-Oeste possuem produção mais reduzida.  
+
+- **Comparativo Regional:**  
+  - O **Sudeste** responde por mais de 50% dos artigos.  
+  - Sul e Nordeste dividem posições intermediárias.  
+  - Centro-Oeste e Norte ficam com participação inferior a 15% no total.  
+
+- **Mapa Interativo:**  
+  - Visualização geográfica da produção científica, com intensidade de cor representando a quantidade de artigos por estado.  
+  - Evidencia a desigualdade entre estados mais e menos produtivos.  
+
+- **Evolução Temporal:**  
+  - Possibilidade de filtrar por **ano** para observar variações na produção científica.  
+  - Permite identificar tendências de crescimento ou queda ao longo do triênio analisado (2021–2023).  
+
+- **Filtro de Gênero:**  
+  - Destaca a diferença de participação entre homens e mulheres.  
+  - Possibilita observar em quais estados/regiões a presença feminina é mais expressiva ou ainda mais reduzida.  
+
+- **Integração Programas vs. Artigos:**  
+  - Relação entre quantidade de programas de pós-graduação e o volume de artigos publicados.  
+  - Mostra a concentração de produção em programas maiores e mais consolidados.  
 
 ---
 
-### 3. Financiadores de Projetos
-- **Arquivo:** `financiadores.pdf`
-- **Descrição:** Metadados sobre financiadores de projetos vinculados aos PPGs.
-- **Variáveis principais:** nome do financiador, natureza do financiamento, programa de fomento, país de origem, indicador de financiador estrangeiro, vínculo com programa/instituição.
-- **Registros (2021–2023):**  
-  - **2021:** 167.959 registros → 109.808 projetos distintos, 4.424 PPGs, 431 IES  
-  - **2022:** 170.027 registros → 110.939 projetos distintos, 4.362 PPGs, 432 IES  
-  - **2023:** 170.624 registros → 110.743 projetos distintos, 4.407 PPGs, 434 IES  
-
----
-
-### 4. Programas de Pós-Graduação
-- **Arquivo:** `programas.pdf`
-- **Descrição:** Informações sobre os Programas de Pós-Graduação stricto sensu no Brasil.
-- **Variáveis principais:** área de conhecimento, grande área, subárea, especialidade, instituição, município, UF, região, conceito CAPES, modalidade (acadêmico/profissional), situação do programa, início do curso.
-- **Registros (2021–2023):**  
-  - **2021:** 4.709 PPGs em 473 IES  
-  - **2022:** 4.594 PPGs em 476 IES  
-  - **2023:** 4.659 PPGs em 477 IES  
-
----
-
-## 📊 Relação entre os conjuntos
-
-```mermaid
-graph TD
-    A[Programas de Pós-Graduação] --> B[Produção Intelectual]
-    B --> C[Autores da Produção Intelectual]
-    A --> D[Projetos]
-    D --> E[Financiadores]
+## 📌 Observações
+- Arquivo original do painel disponível em `dashboards/painel.pbix`.  
+- Esta pasta pode conter também exportações (`.png`, `.pdf`) para documentação estática.  

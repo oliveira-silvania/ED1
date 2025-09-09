@@ -1,46 +1,56 @@
-# 📂 Pasta `dashboards`
+# 📂 Pasta `scripts` — Predição de Gênero + Atualização no SQL Server
 
-Este diretório reúne o **Painel de Análises em Power BI**, desenvolvido como parte da Iniciação Científica:  
-> **A INCLUSÃO DE MULHERES NA CIÊNCIA BRASILEIRA EM ÁREAS DE STEM: REPOSITÓRIO DE DADOS, ANÁLISES ESTATÍSTICAS E MODELAGENS QUE IDENTIFIQUEM PADRÕES OU TENDÊNCIAS**
+Este documento descreve o pipeline **rondon florest** para **inferência de gênero** a partir de dados da CAPES/Sucupira, com **atualização direta** na tabela alvo do SQL Server.
 
-O painel consolida indicadores da produção científica brasileira (2021–2023), com foco na **participação feminina em áreas STEM**.
-
----
-
-## 🌐 Versão Online (Interativa)
-
-🔗 [Clique aqui para abrir o painel no Power BI](https://app.powerbi.com/groups/me/reports/a76d7687-9fee-4eec-b6ab-676185c166bd/b65fad18172b98588cda?experience=power-bi)
-
----
-
-## 🔎 Destaques do Painel
-- **Distribuição por Estado (UF):**  
-  - São Paulo concentra o maior número de programas e artigos.  
-  - Estados do Sudeste e Sul apresentam forte presença, enquanto regiões Norte e Centro-Oeste possuem produção mais reduzida.  
-
-- **Comparativo Regional:**  
-  - O **Sudeste** responde por mais de 50% dos artigos.  
-  - Sul e Nordeste dividem posições intermediárias.  
-  - Centro-Oeste e Norte ficam com participação inferior a 15% no total.  
-
-- **Mapa Interativo:**  
-  - Visualização geográfica da produção científica, com intensidade de cor representando a quantidade de artigos por estado.  
-  - Evidencia a desigualdade entre estados mais e menos produtivos.  
-
-- **Evolução Temporal:**  
-  - Possibilidade de filtrar por **ano** para observar variações na produção científica.  
-  - Permite identificar tendências de crescimento ou queda ao longo do triênio analisado (2021–2023).  
-
-- **Filtro de Gênero:**  
-  - Destaca a diferença de participação entre homens e mulheres.  
-  - Possibilita observar em quais estados/regiões a presença feminina é mais expressiva ou ainda mais reduzida.  
-
-- **Integração Programas vs. Artigos:**  
-  - Relação entre quantidade de programas de pós-graduação e o volume de artigos publicados.  
-  - Mostra a concentração de produção em programas maiores e mais consolidados.  
+> **Resumo do fluxo:**  
+> 1) Treina **RF contextual** (features institucionais/produção),  
+> 2) Treina **modelo por nome** (TF-IDF de caracteres + LR calibrada),  
+> 3) Aplica regras **Bayes (nome, UF)** e **Bayes (nome)**,  
+> 4) **Adapta limiares** até atingir cobertura meta,  
+> 5) Aplica **fallback** para chegar a **100%**,  
+> 6) Grava **colunas de saída** na tabela e **registra LOG**.
 
 ---
 
-## 📌 Observações
-- Arquivo original do painel disponível em `dashboards/painel.pbix`.  
-- Esta pasta pode conter também exportações (`.png`, `.pdf`) para documentação estática.  
+## 📦 Entrada, Saída e Pré-requisitos
+
+**Entrada (SQL Server)**  
+- Banco: `IC`  
+- Tabela: `dbo.STEM_Y`  
+- Chave: `ROW_ID`  
+- Nome do autor: `NM_AUTOR`  
+- Coluna alvo: `GENERO` (valores possíveis: FEMININO, MASCULINO, INDETERMINADO)
+
+**Features exigidas**  
+`NM_AREA_BASICA`, `NM_MODALIDADE_PROGRAMA`, `NM_GRAU_PROGRAMA`, `DS_SITUACAO_PROGRAMA`,  
+`NM_REGIAO`, `SG_UF_PROGRAMA`, `DS_DEPENDENCIA_ADMINISTRATIVA`, `NM_ENTIDADE_ENSINO`,  
+`NM_PROGRAMA_FOMENTO`, `NM_FINANCIADOR`, `NM_NATUREZA_FINANCIAMENTO`,  
+`NM_TIPO_PRODUCAO`, `NM_SUBTIPO_PRODUCAO`, `TP_AUTOR`
+
+**Saídas gravadas**  
+- `GENERO_PRED`, `PROB_GENERO_PRED`, `FOI_IMPUTADO`, `MODO_IMPUTACAO`, `CONF_FONTE`, `IMPUTACAO_FORCADA`
+
+**Artefatos gerados**  
+- Modelos: `modelo_genero.joblib`, `modelo_genero_nome.joblib`  
+- Métricas: `modelo_genero_metrics.json`, `modelo_genero_nome_metrics.json`  
+- Log: `checkpoint_predicao.log`  
+- Tabela de log no banco: `dbo.LOG_IMPUTACAO_GENERO`
+
+---
+
+## 🔁 Pipeline — Visão Geral
+
+```mermaid
+flowchart TD
+    A[Dados SQL: STEM_Y] --> B[Pré-processamento]
+    B --> C[Treino RF (contexto)]
+    B --> D[Treino Nome (TF-IDF char + LR calibrada)]
+    B --> E[Estatísticas Bayes (nome, UF) e (nome)]
+    F[Casos INDETERMINADO] --> G[Predição em cascata]
+    C --> G
+    D --> G
+    E --> G
+    G --> H[Adaptação de limiares até meta]
+    H --> I[Fallback para 100%]
+    I --> J[Staging + UPDATE na STEM_Y]
+    J --> K[LOG_IMPUTACAO_GENERO]

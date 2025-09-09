@@ -38,8 +38,4 @@ O objetivo é oferecer uma **visualização interativa** dos dados, permitindo f
   - Relação entre quantidade de programas de pós-graduação e o volume de artigos publicados.  
   - Mostra a concentração de produção em programas maiores e mais consolidados.  
 
----
 
-## 📌 Observações
-- Arquivo original disponível em `dashboards/painel.pbix`.  
-- O painel online contém filtros dinâmicos de **Ano** e **Gênero**, permitindo exploração interativa.  

@@ -10,8 +10,6 @@ O objetivo é oferecer uma **visualização interativa** dos dados, permitindo f
 
 🔗 [Clique aqui para abrir o painel no Power BI](https://app.powerbi.com/groups/me/reports/a76d7687-9fee-4eec-b6ab-676185c166bd/b65fad18172b98588cda?experience=power-bi)
 
-> 💡 Recomendado abrir no navegador com login Power BI para explorar filtros e interatividade.
-
 ---
 
 ## 🔎 Destaques do Painel
@@ -19,8 +17,4 @@ O objetivo é oferecer uma **visualização interativa** dos dados, permitindo f
 - **Mapa Interativo:** permite visualizar a quantidade de artigos por estado.  
 - **Comparativo Regional:** mostra a proporção de artigos por região, com destaque para o Sudeste (>50%).  
 
----
 
-## 📌 Observações
-- Arquivo original disponível em `dashboards/painel.pbix`.  
-- O painel online contém filtros dinâmicos de **Ano** e **Gênero**.  

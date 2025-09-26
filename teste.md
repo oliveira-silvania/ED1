@@ -32,8 +32,10 @@ Problema Produtor–Consumidor com buffer circular. Produtores inserem e consumi
 **Como rodar:**  
 **Execução única**
   python ex02.py -b 8 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
+  
 **Experimento variando o buffer**
   python ex02.py --sweep 1,2,4,8,16,32 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
+  
 **Evidências de execução (cole aqui seus prints/logs):**
 
 ---

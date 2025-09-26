@@ -129,7 +129,7 @@ Map/Reduce de arquivo grande (inteiros). Particiona por blocos alinhados em `\n`
 
 - Execução única: python ex06.py data.txt -p 4
 
-- Sweep speedup: python ex06.py data.txt --sweep
+- Sweep com speedup (1,2,4,8) + verificação de corretude: python ex06.py data.txt --sweep
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

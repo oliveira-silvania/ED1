@@ -50,11 +50,13 @@ Transferências entre contas feitas por múltiplas threads mantendo a soma globa
 - Aquisição em **ordem canônica** (id menor → id maior) para **evitar deadlock**.  
 - Modo sem lock demonstra race/violação de invariante.
 
-**Como rodar (modo correto):**  
+**Como rodar:** 
+
+- COM trava (correto):
 python ex03.py -m 32 -t 8 -n 200000 -i 1000
 
-**Como rodar (modo incorreto):**  
-python ex03.py -m 32 -t 8 -n 200000 -i 1000 --no-lock
+- SEM trava (incorreto, para evidenciar corridas):
+python ex03.py -m 32 -t 8 -n 200000 -i 1000 --nolock
 
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -71,7 +73,11 @@ Pipeline de três estágios (captura → processamento → gravação) conectado
 - Sem seções críticas manuais além das filas.
 
 **Como rodar:**  
-python ex04.py -n 1000 -c1 8 -c2 8 --cap-ms 1,4 --proc-ms 2,5 --grav-ms 1,3
+
+- python ex04.py -n 1000 -c1 8 -c2 8 --cap-ms 1,4 --proc-ms 2,5 --grav-ms 1,3
+
+- Varie capacidades pequenas para estressar backpressure: python ex04.py -n 1000 -c1 1 -c2 1
+
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

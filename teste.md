@@ -97,7 +97,7 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 
 #### CMD (Prompt de Comando)
 
-1) Crie o arquivo de entrada
+1) Crie o arquivo de entrada: 
 (
   echo prime 1000003
   echo fib 40
@@ -107,8 +107,7 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 2) Confira o conteúdo
 type in.txt
 
-3) Execute lendo da entrada padrão
-python ex05.py -w 4 --quiet < in.txt
+3) Executa o programa ex05.py lendo as tarefas desse arquivo: python ex05.py -w 4 --quiet < in.txt
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

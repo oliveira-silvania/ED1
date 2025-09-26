@@ -91,25 +91,24 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 
 **Como rodar**
 
-Esse programa foi testado no cmd, pelo powershell não deu certo
+> Estar na mesma pasta de `ex05.py`.
 
-Cria um arquivo de entrada (in.txt) na mesma pasta onde você está:
+---
 
-rode o seguinte comando no cmd:
-    (
-    echo prime 1000003
-    echo fib 40
-    echo prime 17
-    ) > in.txt
+#### CMD (Prompt de Comando)
 
-Depois disso, digite: type in.txt
+REM 1) Crie o arquivo de entrada
+(
+  echo prime 1000003
+  echo fib 40
+  echo prime 17
+) > in.txt
 
-Vai aparecer:
-    prime 1000003
-    fib 40
-    prime 17
- Executa o programa ex05.py lendo as tarefas desse arquivo:
-    py ex05.py -w 4 --quiet < in.txt
+REM 2) Confira o conteúdo
+type in.txt
+
+REM 3) Execute lendo da entrada padrão
+py ex05.py -w 4 --quiet < in.txt
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

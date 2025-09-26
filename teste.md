@@ -30,11 +30,9 @@ Problema Produtor–Consumidor com buffer circular. Produtores inserem e consumi
 - Sem busy-wait (acordar por sinalização).
 
 **Como rodar:**  
-- Execução única:
-python ex02.py -b 8 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
+- Execução única: python ex02.py -b 8 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
   
-- Experimento variando o buffer:
-python ex02.py --sweep 1,2,4,8,16,32 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
+- Experimento variando o buffer: python ex02.py --sweep 1,2,4,8,16,32 -P 4 -C 4 -d 15 --pmin 1 --pmax 5 --cmin 1 --cmax 5
   
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -52,11 +50,9 @@ Transferências entre contas feitas por múltiplas threads mantendo a soma globa
 
 **Como rodar:** 
 
-- COM trava (correto):
-python ex03.py -m 32 -t 8 -n 200000 -i 1000
+- COM trava (correto): python ex03.py -m 32 -t 8 -n 200000 -i 1000
 
-- SEM trava (incorreto, para evidenciar corridas):
-python ex03.py -m 32 -t 8 -n 200000 -i 1000 --nolock
+- SEM trava (incorreto, para evidenciar corridas): python ex03.py -m 32 -t 8 -n 200000 -i 1000 --nolock
 
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -93,11 +89,27 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 - **Sentinelas** para sinalizar término aos workers.  
 - Contadores/sumários sob **Lock** ou redução final a partir de parciais locais.
 
-**Como rodar (resumido):**  
-printf "prime 1000003\nfib 40\nprime 17\n" | python ex05.py -w 4 --quiet
+**Como rodar**
 
-**Como rodar (detalhado):**  
-printf "prime 97\nprime 221\nfib 45\nfib 10\n" | python ex05.py -w 2
+Esse programa foi testado no cmd, pelo powershell não deu certo
+
+Cria um arquivo de entrada (in.txt) na mesma pasta onde você está:
+
+rode o seguinte comando no cmd:
+    (
+    echo prime 1000003
+    echo fib 40
+    echo prime 17
+    ) > in.txt
+
+Depois disso, digite: type in.txt
+
+Vai aparecer:
+    prime 1000003
+    fib 40
+    prime 17
+ Executa o programa ex05.py lendo as tarefas desse arquivo:
+    py ex05.py -w 4 --quiet < in.txt
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

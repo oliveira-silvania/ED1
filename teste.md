@@ -89,7 +89,7 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 - **Sentinelas** para sinalizar término aos workers.  
 - Contadores/sumários sob **Lock** ou redução final a partir de parciais locais.
 
-**Como rodar**
+**Como rodar:**
 
 > Estar na mesma pasta de `ex05.py`.
 
@@ -123,7 +123,7 @@ Map/Reduce de arquivo grande (inteiros). Particiona por blocos alinhados em `\n`
 - **Reduce** serial na principal (sem Lock) ou fusão concorrente com **Lock** curto.  
 - **Barrier** opcional para tempos consistentes.
 
-**Como rodar**
+**Como rodar:**
 
 - Execução única: python ex06.py data.txt -p 4
 

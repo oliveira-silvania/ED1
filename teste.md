@@ -108,7 +108,7 @@ Pool fixo de workers consumindo tarefas de uma fila concorrente. Lê da STDIN `p
 type in.txt
 
 3) Execute lendo da entrada padrão
-py ex05.py -w 4 --quiet < in.txt
+python ex05.py -w 4 --quiet < in.txt
 
 **Evidências de execução (cole aqui seus prints/logs):**
 

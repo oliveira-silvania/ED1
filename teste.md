@@ -125,11 +125,11 @@ Map/Reduce de arquivo grande (inteiros). Particiona por blocos alinhados em `\n`
 - **Reduce** serial na principal (sem Lock) ou fusão concorrente com **Lock** curto.  
 - **Barrier** opcional para tempos consistentes.
 
-**Como rodar (execução única):**  
-python ex06.py data.txt -p 4
+**Como rodar**
 
-**Como rodar (sweep speedup):**  
-python ex06.py data.txt --sweep
+- Execução única: python ex06.py data.txt -p 4
+
+- Sweep speedup: python ex06.py data.txt --sweep
 
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -145,13 +145,11 @@ Jantar dos Filósofos. Duas soluções: (A) ordem total de garfos; (B) semáforo
 - **Ordem total** elimina ciclos (deadlock).  
 - **Semaphore(n-1)** (“garçom”) previne deadlock e reduz contenção.
 
-**Como rodar (ordem global):**  
-python ex07.py --n 5 --mode order --duration 10
+**Como rodar:**
 
-**Como rodar (semáforo/garçom):**  
-python ex07.py --n 5 --mode sem --limit 4 --duration 10
+- Modo (a): ordem global (deadlock-free) + cortesia (anti-starvation): python ex07.py --mode order --n 5 --duration 10 --think 20,60 --eat 15,40
 
-**Evidências de execução (cole aqui seus prints/logs):**
+- Modo (b): semáforo FIFO limitando 4 simultâneos (para N=5): python ex07.py --mode sem --n 5 --limit 4 --duration 10 --think 20,60 --eat 15,40
 
 ---
 
@@ -165,8 +163,14 @@ Produtor–Consumidor com rajadas. Backpressure controla ritmo produtor quando c
 - **Conditions** internas evitam busy-wait.  
 - Métricas protegidas por **Lock** quando agregadas.
 
-**Como rodar:**  
-python ex08.py -b 32 -P 3 -C 2 -d 20 --burst-len 250 --burst-gap 400
+**Como rodar:**
+
+- Cenário: bursts rápidos e consumidores lentos (estressa backpressure):
+python ex08.py -b 32 -P 3 -C 2 -d 20 --burst-len 50 --burst-item-ms 0,2 --idle-ms 200,400 --consume-ms 5,12 --high 0.8 --low 0.5 --sample-ms 50 --csv ocupacao_lento.csv
+
+- Consumidores mais rápidos (buffer estabiliza com ocupação menor):
+python ex08.py -b 32 -P 3 -C 4 -d 20 --burst-len 50 --burst-item-ms 0,2 --idle-ms 200,400 --consume-ms 1,4 --high 0.8 --low 0.5 --sample-ms 50 --csv ocupacao_rapido.csv
+
 
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -185,8 +189,13 @@ Corrida de revezamento: equipes com K threads; cada perna só inicia quando toda
 **Como rodar (execução normal):**  
 python ex09.py --k 5 --duration 15 --run-ms 10,30 --impl barrier
 
-**Como rodar (sweep K variando):**  
-python ex09.py --sweep 2,3,4,5,8 --duration 20
+**Como rodar:**
+- Rodar um único cenário (uma equipe): python ex09.py --k 5 --duration 15 --run-ms 10,30 --impl barrier
+
+- Usar a barreira implementada com mutex+condvar: python ex09.py --k 5 --duration 15 --run-ms 10,30 --impl cond
+
+- Medir rodadas por minuto para vários tamanhos de equipe (CSV): python ex09.py --sweep 2,3,4,5,8 --duration 20 --run-ms 8,20 --impl barrier
+
 
 **Evidências de execução (cole aqui seus prints/logs):**
 
@@ -202,10 +211,10 @@ Cenário de deadlock intencional com múltiplos locks em ordens diferentes e **w
 - **Watchdog** monitora heartbeats/timestamps e relata threads/locks suspeitos (leitura sob **Lock**).  
 - **Ordem total** de aquisição (id crescente) ⇒ grafo de espera acíclico.
 
-**Como rodar (modo com deadlock):**  
-python ex10.py --mode deadlock --resources 4 --threads 4 --iters 100 --hold-ms 10,30 --wd-timeout 2.0
+**Como rodar:**
 
-**Como rodar (modo ordenado, sem deadlock):**  
-python ex10.py --mode ordered --resources 4 --threads 4 --iters 100 --hold-ms 10,30
+- Forçar deadlock e ver o relatório do watchdog: python ex10.py --mode deadlock --resources 4 --threads 4 --iters 100 --hold-ms 10,30 --wd-timeout 2.0
+
+- Corrigir com ordem total de travamento (sem deadlock): python ex10.py --mode ordered --resources 4 --threads 4 --iters 100 --hold-ms 10,30
 
 **Evidências de execução (cole aqui seus prints/logs):**

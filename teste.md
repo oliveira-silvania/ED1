@@ -7,10 +7,9 @@
 **Explicação:**  
 Este exercício simula uma corrida de cavalos utilizando threads. Cada cavalo é representado por uma thread que percorre a pista de forma independente, mas a largada é sincronizada para que todos comecem juntos. O programa controla a posição de cada cavalo e determina o vencedor. Há proteção contra condições de corrida usando locks, especialmente no momento de registrar o primeiro colocado. O usuário pode apostar em um cavalo, e ao final o programa verifica se a aposta estava correta.
 
-**Como rodar (extraído do código):**
-#como rodar? 
-# Execução única
-#     python ex01.py
+**Como rodar**
+como rodar? 
+python ex01.py
 
 ---
 

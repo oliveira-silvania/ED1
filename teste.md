@@ -42,10 +42,10 @@ Analisar a participação de mulheres em programas de mestrado e doutorado nas �
 
 Cada pasta inclui arquivos **CSV de nós, arestas** e projetos **.gephi**.
 
-### **`Python/`** — Codigos em python 
+### **`python/`** — Códigos em python 
 Inclui:  
 - **`classificação_de_genero/`** → scripts dedicados à inferência de gênero.  
-- **`converter_csv_para_banco.py`** → script para importar arquivos CSV diretamente no SQL Server.
+- **`converter_csv_para_banco.py`** → código para importar arquivos CSV diretamente no SQL Server.
 
 ### **`sql/`** — Scripts SQL  
 - **`gephi/`** → consultas para geração de nós e arestas da redes.  

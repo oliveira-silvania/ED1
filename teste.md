@@ -2,8 +2,6 @@
 
 Repositório oficial do **Trabalho de Conclusão de Curso** apresentado ao curso de **Ciência da Computação da Pontifícia Universidade Católica de Goiás**, sob orientação da **Profa. Maria José Pereira Dantas**, no ano de **2025**.
 
-O objetivo central deste TCC é investigar a **produção científica de mulheres** nas áreas de **Ciências Exatas e da Terra (CET)** e **Engenharias**, utilizando **modelagem de redes complexas** aplicada às informações disponibilizadas pela **Plataforma Sucupira/CAPES** referentes ao triênio **2021–2023**.
-
 ---
 
 ## 👤 Autoria  

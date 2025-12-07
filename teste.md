@@ -21,10 +21,10 @@ O objetivo central deste TCC é investigar a **produção científica de mulhere
 Analisar a participação de mulheres em programas de mestrado e doutorado nas áreas de STEM no Brasil, nos anos de 2021, 2022 e 2023, por meio de redes complexas aplicadas aos dados da Plataforma Sucupira.
 
 ### Objetivos específicos
--	Extrair e organizar os dados dos programas de pós-graduação da Plataforma Sucupira, com foco nas áreas de Engenharias e CET (Ciências Exatas e da Terra).
--	Construir redes complexas de coautoria, vínculos institucionais e qualidade de publicação, utilizando métricas como grau, centralidade, densidade e modularidade para identificar padrões estruturais da colaboração feminina.
--	Analisar a presença, visibilidade e posição das mulheres nas redes acadêmicas, observando desigualdades de participação e influência entre instituições e áreas.
--	Desenvolver um painel de BI interativo para visualização dados estatísticos, permitindo a exploração dinâmica das informações por ano, área, instituição, tipo de vínculo e outras dimensões relevantes.
+- Extrair e organizar os dados dos programas de pós-graduação da Plataforma Sucupira, com foco nas áreas de Engenharias e CET (Ciências Exatas e da Terra).
+- Construir redes complexas de coautoria, vínculos institucionais e qualidade de publicação, utilizando métricas como grau, centralidade, densidade e modularidade para identificar padrões estruturais da colaboração feminina.
+- Analisar a presença, visibilidade e posição das mulheres nas redes acadêmicas, observando desigualdades de participação e influência entre instituições e áreas.
+- Desenvolver um painel de BI interativo para visualização de dados estatísticos, permitindo a exploração dinâmica das informações por ano, área, instituição, tipo de vínculo e outras dimensões relevantes.
 
 ---
 
@@ -57,8 +57,8 @@ Analisar a participação de mulheres em programas de mestrado e doutorado nas �
 
 ## ⚙️ Tecnologias utilizadas no TCC
 
-- **Python** → limpeza, integração de dados e classificação de gênero.  
-- **SQL Server** → armazenamento e pré-processamento dos dados Sucupira.  
+- **Python** → integração de dados e classificação de gênero.  
+- **SQL Server** → armazenamento e limpeza.  
 - **Gephi** → análise e visualização das redes.  
 - **GitHub** → versionamento do TCC e reprodutibilidade.  
 
@@ -71,7 +71,7 @@ O trabalho modela e analisa três tipos de redes:
 1. **Redes de coautoria**  
    - Nós = autores  
    - Arestas = coautorias  
-   - Filtragem pela **primeira autoria feminina** em CET e Engenharias.
+   - Filtragem pela **primeira autoria por gênero** em CET e Engenharias.
 
 2. **Redes de destinos de publicação**  
    - Nós = autoras e veículos (periódicos)  
@@ -80,9 +80,29 @@ O trabalho modela e analisa três tipos de redes:
 
 3. **Redes de circulação institucional**  
    - Nós = instituições  
-   - Arestas = vínculos de publicação dos autores ao longo dos anos.  
+   - Arestas = vínculos de publicação (IES) dos autores ao longo dos anos.  
 
 Cada rede possui cálculo de métricas como grau médio, densidade, modularidade, clustering, componentes e diâmetros, permitindo detectar padrões de concentração, centralidade e desigualdades de participação.
+
+---
+
+## 📈 Painel de Business Intelligence (BI)
+
+O TCC também inclui o desenvolvimento de um **painel de BI interativo**, construído a partir da base consolidada em SQL Server e integrado ao Power BI. Esse painel cumpre um duplo papel:
+
+- **Ferramenta analítica**: permite explorar de forma dinâmica os dados de produção científica, filtrando por:
+  - ano (2021, 2022, 2023);  
+  - área (CET, Engenharias);  
+  - região e unidade da federação;  
+  - instituição de ensino superior;  
+  - gênero da primeira autoria;  
+  - estrato Qualis dos veículos de publicação;  
+  - tipo de vínculo (docente, discente, egresso, colaborador externo).  
+
+- **Validação visual das redes**: auxilia na identificação rápida da sobreposição entre **desigualdades regionais** e **desigualdades de gênero**, funcionando como um complemento visual às análises de redes complexas realizadas no Gephi.
+
+🔗 **Link do painel de BI:**  
+**[Acessar painel BI (Power BI)](COLOQUE_AQUI_O_LINK_DO_PAINEL_QUANDO_PUBLICAR)**
 
 ---
 
@@ -99,9 +119,8 @@ Todas as etapas — extração, limpeza, modelagem de redes e visualização —
 
 ## 📝 Documento final
 
-O TCC completo está disponível em:
+O TCC completo será disponibilizado neste repositório por meio do link:
 
-📄 **`reports/TCC_FINAL.pdf`**  
+🔗 **[Acessar TCC Final (PDF)](COLOQUE_AQUI_O_LINK_QUANDO_PUBLICAR)**
 
 ---
-

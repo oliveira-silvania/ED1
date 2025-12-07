@@ -22,23 +22,20 @@ Analisar a participação de mulheres em programas de mestrado e doutorado nas �
 
 ### Objetivos específicos
 - Extrair e organizar os dados da Plataforma Sucupira, com foco nas áreas de Engenharias e CET.  
-- Construir redes complexas de coautoria, vínculos institucionais e destinos de publicação.  
-- Utilizar métricas como grau, centralidade, densidade, componentes, clustering e modularidade.  
-- Identificar padrões estruturais da colaboração feminina e desigualdades de participação.  
-- Desenvolver um painel de BI interativo para exploração dos dados.  
+- Construir redes complexas de coautoria, vínculos institucionais e destinos de publicação, utilizando métricas como grau, centralidade, densidade e modularidade.  
+- Analisar desigualdades de participação feminina e padrões estruturais da colaboração.  
+- Desenvolver um painel de BI interativo para exploração estatística dos dados.  
 
 ---
 
 ## 📂 Estrutura do Repositório
-
-A seguir está a estrutura real do repositório, conforme representada na imagem:
 
 ### **`data/`** — Bases de dados  
 - **`raw/`** → dados brutos extraídos da Plataforma Sucupira (2021–2023).  
 - **`processed/`** → dados tratados e prontos para análises e geração das redes.  
 
 ### **`gephi/`** — Redes complexas  
-Contém três conjuntos de redes modeladas no TCC:  
+
 - **`circulação_institucional/`**  
 - **`coautoria/`**  
 - **`destinos_de_publicação/`**  
@@ -52,70 +49,59 @@ Inclui:
 
 ### **`sql/`** — Scripts SQL  
 - **`gephi/`** → consultas auxiliares para geração de listas finais de nós e arestas.  
-- **`integracao_dos_dados.sql`** → integração das bases 2021–2023, padronização e limpeza dos dados.  
-
-### **`README.md`**  
-Documento principal de descrição do projeto.
+- **`integracao_dos_dados.sql`** → integração das bases 2021–2023 e filtragem dos dados necessários.  
 
 ---
 
 ## ⚙️ Tecnologias utilizadas no TCC
 
-- **Python** → integração de dados, classificação de gênero e automações.  
-- **SQL Server** → armazenamento, padronização e preparação da base.  
-- **Gephi** → cálculo de métricas e visualização das redes.  
-- **Power BI** → criação do painel analítico interativo.  
-- **GitHub** → rastreamento de versões e reprodutibilidade do pipeline.  
+- **Python** → integração de dados, rotinas de classificação de gênero e análises auxiliares.  
+- **SQL Server** → armazenamento, limpeza e processamento dos dados.  
+- **Gephi** → modelagem, métricas e visualização das redes.  
+- **Power BI** → painel analítico interativo.  
+- **GitHub** → versionamento e reprodutibilidade da pesquisa.  
 
 ---
 
 ## 📊 Redes analisadas no TCC
 
-O estudo desenvolve e analisa três redes centrais:
+O estudo modela três redes principais:
 
-### **1. Rede de coautoria**
-- Nós = autores  
-- Arestas = relações de coautoria  
-- Foco em **primeiras autorias por gênero**  
+### 1. **Rede de coautoria**
+- **Nós**: autores  
+- **Arestas**: relações de coautoria  
+- Foco na **primeira autoria por gênero** em CET e Engenharias.  
 
-### **2. Rede de destinos de publicação**
-- Nós = autoras e veículos (periódicos)  
-- Arestas = relações de publicação  
-- Considera o **estrato Qualis** dos periódicos  
+### 2. **Rede de destinos de publicação**
+- **Nós**: autoras e veículos (periódicos)  
+- **Arestas**: artigos publicados  
+- Análise incorporando **estrato Qualis**.
 
-### **3. Rede de circulação institucional**
-- Nós = instituições de ensino e pesquisa  
-- Arestas = vínculos entre instituições ao longo do tempo  
+### 3. **Rede de circulação institucional**
+- **Nós**: instituições brasileiras de ensino e pesquisa  
+- **Arestas**: vínculos de publicação ao longo dos três anos  
 
-Cada rede contém métricas estruturais importantes como:
+Cada rede possui métricas como:
+- grau médio e ponderado  
+- densidade  
+- modularidade  
+- clustering  
+- componentes  
+- diâmetro  
 
-- Grau e grau médio  
-- Densidade  
-- Clustering  
-- Componentes  
-- Diâmetro  
-- Modularidade  
-
-Essas métricas revelam padrões de colaboração, centralidade, conectividade e desigualdades regionais e de gênero.
+Essas métricas permitem identificar **padrões de colaboração, posições estruturais e desigualdades de participação de gênero**.
 
 ---
 
 ## 📈 Painel de Business Intelligence (BI)
 
-Foi desenvolvido um **painel interativo em Power BI**, utilizando toda a base integrada e filtrável por:
+O TCC inclui o desenvolvimento de um **painel de BI interativo**, que permite a exploração visual e estatística da produção científica.
 
-- área (CET, Engenharias)  
-- gênero da primeira autoria  
-- estrato Qualis  
-- tipo de vínculo (docente, discente, egresso, externo)  
-- ano  
-- instituição  
-- região/estado  
-
-### Finalidade do painel:
-- Permitir uma exploração rápida e dinâmica dos dados  
-- Validar visualmente padrões encontrados nas redes  
-- Relacionar desigualdades regionais às desigualdades de gênero  
+### **Funções principais:**
+- Filtragem por **ano**, **área**, **região**, **instituição**, **gênero**, **estrato Qualis** e **tipo de vínculo**.  
+- Visualização da distribuição da produção acadêmica no Brasil.  
+- Identificação de padrões regionais e temáticos.  
+- Complementação das análises estruturais feitas no Gephi.
 
 🔗 **Link do painel de BI:**  
 **[Acessar painel BI (Power BI)](COLOQUE_AQUI_O_LINK_DO_PAINEL_QUANDO_PUBLICAR)**
@@ -124,12 +110,12 @@ Foi desenvolvido um **painel interativo em Power BI**, utilizando toda a base in
 
 ## 🔁 Reprodutibilidade
 
-O repositório oferece reprodutibilidade completa por meio de:
+Este repositório garante reprodutibilidade total do estudo, reunindo:
 
 - scripts SQL,  
 - notebooks Python,  
-- arquivos CSV de nós e arestas,  
-- arquivos `.gephi` prontos para visualização.
+- CSVs de nós e arestas,  
+- arquivos .gephi para visualização.  
 
 ---
 

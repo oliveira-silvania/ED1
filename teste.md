@@ -1,6 +1,6 @@
 # ANÁLISE DE REDES COMPLEXAS DAS PUBLICAÇÕES CIENTÍFICAS DE MULHERES EM PROGRAMAS DE PÓS-GRADUAÇÃO STRICTO SENSU NAS ÁREAS STEM (2021–2023), COM BASE NA PLATAFORMA SUCUPIRA
 
-Repositório oficial do **Trabalho de Conclusão de Curso** apresentado ao curso de **Ciência da Computação da Pontifícia Universidade Católica de Goiás**, sob orientação da **Profa. Maria José Pereira Dantas**, no ano **2025**.
+Repositório oficial do **Trabalho de Conclusão de Curso** apresentado ao curso de **Ciência da Computação da Pontifícia Universidade Católica de Goiás**, sob orientação da **Profa. Maria José Pereira Dantas**, no ano de **2025**.
 
 O objetivo central deste TCC é investigar a **produção científica de mulheres** nas áreas de **Ciências Exatas e da Terra (CET)** e **Engenharias**, utilizando **modelagem de redes complexas** aplicada às informações disponibilizadas pela **Plataforma Sucupira/CAPES** referentes ao triênio **2021–2023**.
 
@@ -40,22 +40,22 @@ Analisar a participação de mulheres em programas de mestrado e doutorado nas �
 - **`coautoria/`**  
 - **`destinos_de_publicação/`**  
 
-Cada pasta inclui arquivos **CSV de nós e arestas** e projetos **.gephi**.
+Cada pasta inclui arquivos **CSV de nós, arestas** e projetos **.gephi**.
 
-### **`notebooks/`** — Processamento e análise em Python  
+### **`Python/`** — Codigos em python 
 Inclui:  
-- **`classificação_de_genero/`** → scripts e notebooks dedicados à inferência e validação de gênero.  
+- **`classificação_de_genero/`** → scripts dedicados à inferência de gênero.  
 - **`converter_csv_para_banco.py`** → script para importar arquivos CSV diretamente no SQL Server.
 
 ### **`sql/`** — Scripts SQL  
-- **`gephi/`** → consultas auxiliares para geração de listas finais de nós e arestas.  
+- **`gephi/`** → consultas para geração de nós e arestas da redes.  
 - **`integracao_dos_dados.sql`** → integração das bases 2021–2023 e filtragem dos dados necessários.  
 
 ---
 
 ## ⚙️ Tecnologias utilizadas no TCC
 
-- **Python** → integração de dados, rotinas de classificação de gênero e análises auxiliares.  
+- **Python** → integração de dados e rotinas de classificação de gênero.  
 - **SQL Server** → armazenamento, limpeza e processamento dos dados.  
 - **Gephi** → modelagem, métricas e visualização das redes.  
 - **Power BI** → painel analítico interativo.  
@@ -95,7 +95,7 @@ Essas métricas permitem identificar **padrões de colaboração, posições est
 
 ## 📈 Painel de Business Intelligence (BI)
 
-O TCC inclui o desenvolvimento de um **painel de BI interativo**, que permite a exploração visual e estatística da produção científica.
+O **painel de BI interativo** permite a exploração visual e estatística da produção científica.
 
 ### **Funções principais:**
 - Filtragem por **ano**, **área**, **região**, **instituição**, **gênero**, **estrato Qualis** e **tipo de vínculo**.  

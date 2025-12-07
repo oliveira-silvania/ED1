@@ -1,6 +1,6 @@
 # ANÁLISE DE REDES COMPLEXAS DAS PUBLICAÇÕES CIENTÍFICAS DE MULHERES EM PROGRAMAS DE PÓS-GRADUAÇÃO STRICTO SENSU NAS ÁREAS STEM (2021–2023), COM BASE NA PLATAFORMA SUCUPIRA
 
-Repositório oficial do **Trabalho de Conclusão de Curso II (TCC)** apresentado ao curso de **Ciência da Computação da Pontifícia Universidade Católica de Goiás (PUC Goiás)**, sob orientação da **Profa. Maria José Pereira Dantas**, no período **2024/2–2025/1**.
+Repositório oficial do **Trabalho de Conclusão de Curso II (TCC)** apresentado ao curso de **Ciência da Computação da Pontifícia Universidade Católica de Goiás (PUC Goiás)**, sob orientação da **Profa. Maria José Pereira Dantas**, no ano **2025**.
 
 O objetivo central deste TCC é investigar a **produção científica de mulheres** nas áreas de **Ciências Exatas e da Terra (CET)** e **Engenharias**, utilizando **modelagem de redes complexas** aplicada às informações disponibilizadas pela **Plataforma Sucupira/CAPES** referentes ao triênio **2021–2023**.
 
@@ -11,26 +11,24 @@ O objetivo central deste TCC é investigar a **produção científica de mulhere
 - **Orientadora:** Profa. Dra. Maria José Pereira Dantas  
 - **Instituição:** Pontifícia Universidade Católica de Goiás (PUC Goiás)  
 - **Curso:** Ciência da Computação  
-- **Período:** 2024/2–2025/1  
+- **Ano:** 2025  
 
 ---
 
 ## 🎯 Objetivos do TCC
 
 ### Objetivo geral
-Analisar redes complexas da produção científica feminina em programas brasileiros de pós-graduação stricto sensu nas áreas STEM (com foco em CET e Engenharias), utilizando dados da Plataforma Sucupira (2021–2023).
+Analisar a participação de mulheres em programas de mestrado e doutorado nas áreas de STEM no Brasil, nos anos de 2021, 2022 e 2023, por meio de redes complexas aplicadas aos dados da Plataforma Sucupira.
 
 ### Objetivos específicos
-- Construir um **banco de dados estruturado** a partir dos registros da Plataforma Sucupira.  
-- Implementar rotinas de **classificação de gênero** baseadas em algoritmos, dicionários estatísticos e validação manual.  
-- Modelar **redes de coautoria**, **redes de destinos de publicação** e **redes de circulação institucional**.  
-- Calcular métricas estruturais de redes (grau, densidade, centralidades, clustering, modularidade).  
-- Identificar **padrões, desigualdades ou tendências** de participação feminina na produção científica.  
-- Elaborar visualizações em **Gephi** e análises descritivas complementares.  
+-	Extrair e organizar os dados dos programas de pós-graduação da Plataforma Sucupira, com foco nas áreas de Engenharias e CET (Ciências Exatas e da Terra).
+-	Construir redes complexas de coautoria, vínculos institucionais e qualidade de publicação, utilizando métricas como grau, centralidade, densidade e modularidade para identificar padrões estruturais da colaboração feminina.
+-	Analisar a presença, visibilidade e posição das mulheres nas redes acadêmicas, observando desigualdades de participação e influência entre instituições e áreas.
+-	Desenvolver um painel de BI interativo para visualização dados estatísticos, permitindo a exploração dinâmica das informações por ano, área, instituição, tipo de vínculo e outras dimensões relevantes.
 
 ---
 
-## 📂 Estrutura do Repositório (somente elementos do TCC)
+## 📂 Estrutura do Repositório 
 
 - **`data/`**  
   - **`raw/`** → dados brutos extraídos da Plataforma Sucupira (2021–2023).  
@@ -107,11 +105,3 @@ O TCC completo está disponível em:
 
 ---
 
-Se desejar, posso também:
-
-✅ gerar a **versão em inglês** do README  
-✅ criar um **README com visual mais profissional** (badges, ícones, seções expandidas)  
-✅ gerar **figuras das redes** para colocar no GitHub  
-✅ criar um **template automatizado** de organização do repositório  
-
-É só pedir!

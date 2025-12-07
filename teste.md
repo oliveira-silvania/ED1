@@ -102,7 +102,7 @@ O **painel de BI interativo** permite a exploração visual e estatística da pr
 - Complementação das análises estruturais feitas no Gephi.
 
 🔗 **Link do painel de BI:**  
-**[Acessar painel BI (Power BI)](COLOQUE_AQUI_O_LINK_DO_PAINEL_QUANDO_PUBLICAR)**
+**[Acessar painel BI (Power BI)](https://app.powerbi.com/groups/me/reports/2a735f23-e1e6-448a-89e0-29e9aca95e97/89ec0c53004d157a0256?experience=power-bi)**
 
 ---
 

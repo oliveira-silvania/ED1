@@ -48,7 +48,7 @@ Inclui:
 - **`converter_csv_para_banco.py`** → código para importar arquivos CSV diretamente no SQL Server.
 
 ### **`sql/`** — Scripts SQL  
-- **`gephi/`** → consultas para geração de nós e arestas da redes.  
+- **`gephi/`** → consultas para geração de nós e arestas das redes.  
 - **`integracao_dos_dados.sql`** → integração das bases 2021–2023 e filtragem dos dados necessários.  
 
 ---
@@ -65,7 +65,7 @@ Inclui:
 
 ## 📊 Redes analisadas no TCC
 
-O estudo modela três redes principais:
+O estudo modela três tipos de redes:
 
 ### 1. **Rede de coautoria**
 - **Nós**: autores  
@@ -113,7 +113,7 @@ O **painel de BI interativo** permite a exploração visual e estatística da pr
 Este repositório garante reprodutibilidade total do estudo, reunindo:
 
 - scripts SQL,  
-- notebooks Python,  
+- códigos Python,  
 - CSVs de nós e arestas,  
 - arquivos .gephi para visualização.  
 

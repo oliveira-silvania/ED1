@@ -37,9 +37,10 @@ Analisar a participação de mulheres em programas de mestrado e doutorado nas �
 - **`sql/`**  
   Scripts utilizados para:
   - integração dos anos 2021–2023;
-  - limpeza de dados;
-  - geração de arquivos de nós e arestas para o Gephi.  
-
+  - **`inferência de gênero/`**  
+  - **`limpeza de dados/`** 
+  - **`geração de arquivos de nós e arestas para o Gephi. /`** 
+  
 - **`notebooks/`**  
   Notebooks Python usados para:
   - criação das tabelas normalizadas;  
@@ -115,7 +116,7 @@ Todas as etapas — extração, limpeza, modelagem de redes e visualização —
 
 ## 📝 Documento final
 
-O TCC completo disponibilizado em:
+O TCC completo disponivel em:
 
 🔗 **[Acessar TCC Final (PDF)](COLOQUE_AQUI_O_LINK_QUANDO_PUBLICAR)**
 

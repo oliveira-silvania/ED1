@@ -9,7 +9,7 @@ O objetivo central deste TCC é investigar a **produção científica de mulhere
 ## 👤 Autoria  
 - **Discente:** Silvania Alves Oliveira  
 - **Orientadora:** Profa. Dra. Maria José Pereira Dantas  
-- **Instituição:** Pontifícia Universidade Católica de Goiás (PUC Goiás)  
+- **Instituição:** PUC Goiás 
 - **Curso:** Ciência da Computação  
 - **Ano:** 2025  
 

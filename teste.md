@@ -95,7 +95,7 @@ O TCC também inclui o desenvolvimento de um **painel de BI interativo**, constr
   - área (CET, Engenharias);  
   - região e unidade da federação;  
   - instituição de ensino superior;  
-  - gênero da primeira autoria;  
+  - gênero
   - estrato Qualis dos veículos de publicação;  
   - tipo de vínculo (docente, discente, egresso, colaborador externo).  
 
@@ -119,7 +119,7 @@ Todas as etapas — extração, limpeza, modelagem de redes e visualização —
 
 ## 📝 Documento final
 
-O TCC completo será disponibilizado neste repositório por meio do link:
+O TCC completo disponibilizado em:
 
 🔗 **[Acessar TCC Final (PDF)](COLOQUE_AQUI_O_LINK_QUANDO_PUBLICAR)**
 

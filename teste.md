@@ -31,12 +31,12 @@ O objetivo principal é aplicar, de forma integrada, conceitos fundamentais da d
 
 ```text
 SO2/
-├── src/
-├── include/
+├── build/
 ├── config/
 │   └── config.txt
 ├── logs/
 │   └── run.log
+├── src/
 ├── Makefile
 └── README.md
 ```

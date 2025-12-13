@@ -104,3 +104,39 @@ max_vagas=50
 hora_abertura=08:00
 hora_fechamento=22:00
 log_level=INFO
+# Como Rodar o Projeto (Passo a Passo)
+
+⚠️ **IMPORTANTE:**  
+Todos os comandos devem ser executados **dentro da pasta `SO2/`** (pasta raiz do projeto).
+
+---
+
+## Passo 1 – Abrir o terminal
+Abra um terminal no Linux.
+
+---
+
+## Passo 2 – Entrar na pasta do projeto
+```bash
+cd SO2
+
+---
+
+## Passo 3 – Limpar compilações antigas
+make clean
+
+---
+
+## Passo 4 – Compilar o projeto
+make
+
+---
+
+## Passo 5 – Executar o sistema
+make run
+
+---
+
+## Passo 6 – Ver carros entrando e saindo (em tempo real)
+cd SO2
+tail -f logs/run.log

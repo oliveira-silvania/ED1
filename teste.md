@@ -66,8 +66,9 @@ make
 make run
 ```
 
-Para acompanhar os logs:
+Para acompanhar os logs, em outro terminal
 
 ```bash
+cd SO2
 tail -f logs/run.log
 ```
